@@ -57,6 +57,9 @@ importers:
       '@types/node':
         specifier: ^24.0.3
         version: 24.0.3
+      prisma-markdown:
+        specifier: ^3.0.1
+        version: 3.0.1(@prisma/client@6.11.0(prisma@6.11.0(typescript@5.8.3))(typescript@5.8.3))(prisma@6.11.0(typescript@5.8.3))
       ts-node-dev:
         specifier: ^2.0.0
         version: 2.0.0(@types/node@24.0.3)(typescript@5.8.3)
@@ -101,6 +104,12 @@ packages:
   '@prisma/debug@6.11.0':
     resolution: {integrity: sha512-zo4oEZMWMt0BFWl+4NK9FUpaEOmjGR3y2/r0lkW/DK4BUBRgMj90s8QqK2K+vXG3xn0nAGg2kOSu+Swn60CFLg==}
 
+  '@prisma/debug@6.12.0':
+    resolution: {integrity: sha512-plbz6z72orcqr0eeio7zgUrZj5EudZUpAeWkFTA/DDdXEj28YHDXuiakvR6S7sD6tZi+jiwQEJAPeV6J6m/tEQ==}
+
+  '@prisma/dmmf@6.12.0':
+    resolution: {integrity: sha512-vL8zy61mi9Mv+w5qLvtF9hrhGu4rUZqhSpWWTxx1nengr1Wi7JfKkjJGBiCT79hSurq3oMC71iGAScyqwvi4Fg==}
+
   '@prisma/engines-version@6.11.0-18.9c30299f5a0ea26a96790e13f796dc6094db3173':
     resolution: {integrity: sha512-M3vbyDICFIA1oJl0cFkM0omD4HsJZjFi0hu0f0UxyPABH8KEcZyUd5BToCrNl4B8lUeQn+L5+gfaQleOKp6Lrg==}
 
@@ -109,6 +118,12 @@ packages:
 
   '@prisma/fetch-engine@6.11.0':
     resolution: {integrity: sha512-ZHHSP7vJFo5hePH+MNovxhqXabIg38ZpCwQfUBON29kwPX3f1pjYnzGpgJLCJy4k7mKGOzTgrXPqH8+nJvq2fw==}
+
+  '@prisma/generator-helper@6.12.0':
+    resolution: {integrity: sha512-Bu8AuZJ7xBkmTUHiAL545sc0R5h9HSCnk3NF0POTh8GOMg3JnSoBJUQXVT2z97vkQ8NhtnqEJUlGwkDTbn8pKw==}
+
+  '@prisma/generator@6.12.0':
+    resolution: {integrity: sha512-zHZQKfKNwCp/XweIEuzQG2o4N5AxxWwa9W/QjOP0IFrphjPOTYvsEg8fYqboJDGVAspwY9crT8sppoz5kUovsA==}
 
   '@prisma/get-platform@6.11.0':
     resolution: {integrity: sha512-yspBGvOfJQwuoApk5B4aBlHDy6YDXAOe4Ml8U2eZ+M2b7fDd10YDomS3Q4qrYHUUVYF3TJyN86NcnRMOvCMUrA==}
@@ -599,6 +614,13 @@ packages:
     peerDependencies:
       '@prisma/client': '*'
 
+  prisma-markdown@3.0.1:
+    resolution: {integrity: sha512-2ZgEfz1wFfORYWY0Hg/xiHnhT5tY20ql5TNU3l79U9A3is2X6RLjU7KlBcP4+rg5Bl/i9fHEQqkn3qY0m0Fh5w==}
+    hasBin: true
+    peerDependencies:
+      '@prisma/client': '>= 6.0.0'
+      prisma: '>= 6.0.0'
+
   prisma@6.11.0:
     resolution: {integrity: sha512-gI69E7fusgk32XALpXzdgR10xUx2aFnHiu/JaUo4O07G4JvFT0xNtD0Iy81p37iBLTYFEhWa9VrHKXaiyZ5fLQ==}
     engines: {node: '>=18.18'}
@@ -823,6 +845,10 @@ snapshots:
 
   '@prisma/debug@6.11.0': {}
 
+  '@prisma/debug@6.12.0': {}
+
+  '@prisma/dmmf@6.12.0': {}
+
   '@prisma/engines-version@6.11.0-18.9c30299f5a0ea26a96790e13f796dc6094db3173': {}
 
   '@prisma/engines@6.11.0':
@@ -837,6 +863,14 @@ snapshots:
       '@prisma/debug': 6.11.0
       '@prisma/engines-version': 6.11.0-18.9c30299f5a0ea26a96790e13f796dc6094db3173
       '@prisma/get-platform': 6.11.0
+
+  '@prisma/generator-helper@6.12.0':
+    dependencies:
+      '@prisma/debug': 6.12.0
+      '@prisma/dmmf': 6.12.0
+      '@prisma/generator': 6.12.0
+
+  '@prisma/generator@6.12.0': {}
 
   '@prisma/get-platform@6.11.0':
     dependencies:
@@ -1334,6 +1368,12 @@ snapshots:
     dependencies:
       '@prisma/client': 6.11.0(prisma@6.11.0(typescript@5.8.3))(typescript@5.8.3)
       prisma-extension-nested-operations: 1.0.1(@prisma/client@6.11.0(prisma@6.11.0(typescript@5.8.3))(typescript@5.8.3))
+
+  prisma-markdown@3.0.1(@prisma/client@6.11.0(prisma@6.11.0(typescript@5.8.3))(typescript@5.8.3))(prisma@6.11.0(typescript@5.8.3)):
+    dependencies:
+      '@prisma/client': 6.11.0(prisma@6.11.0(typescript@5.8.3))(typescript@5.8.3)
+      '@prisma/generator-helper': 6.12.0
+      prisma: 6.11.0(typescript@5.8.3)
 
   prisma@6.11.0(typescript@5.8.3):
     dependencies:
