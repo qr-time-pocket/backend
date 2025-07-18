@@ -36,7 +36,18 @@ export class AuthService {
     };
   }
 
-  private async createTokens(userId: string) {
+  async loginWithId(id: string) {
+    const user = await this.userService.getUserById(id);
+
+    if (!user) {
+      throw new Error("User not found");
+    }
+
+    const { accessToken, refreshToken } = await this.createTokens(user.id);
+    return { user, accessToken, refreshToken };
+  }
+
+  public async createTokens(userId: string) {
     const prisma = this.databaseService.getPrisma();
 
     // 기존 리프레시 토큰 삭제
@@ -49,8 +60,8 @@ export class AuthService {
       {
         sub: userId,
         type: "access",
-        iat: Math.floor(Date.now() / 1000),
-        exp: Math.floor(Date.now() / 1000) + 1 * 60 * 60,
+        // iat: Math.floor(Date.now() / 1000),
+        // exp: Math.floor(Date.now() / 1000) + 1 * 60 * 60,
       },
       process.env.JWT_SECRET as string,
       {
@@ -63,8 +74,8 @@ export class AuthService {
       {
         sub: userId,
         type: "refresh",
-        iat: Math.floor(Date.now() / 1000),
-        exp: Math.floor(Date.now() / 1000) + 30 * 24 * 60 * 60,
+        // iat: Math.floor(Date.now() / 1000),
+        // exp: Math.floor(Date.now() / 1000) + 30 * 24 * 60 * 60,
       },
       process.env.JWT_SECRET as string,
       {
@@ -82,6 +93,7 @@ export class AuthService {
       },
     });
 
+    // 액세스 토큰과 리프레시 토큰을 헤더에 추가
     return { accessToken, refreshToken };
   }
 
@@ -122,6 +134,12 @@ export class AuthService {
   // token을 검증하는 메소드 필요
   async verifyToken(token: string) {
     const decoded = jwt.verify(token, process.env.JWT_SECRET as string);
+    console.log("decoded", decoded);
+    // expiresIn 확인
+    // if (decoded.exp && decoded.exp < Date.now() / 1000) {
+    //   throw new Error("Token expired");
+    // }
+
     return decoded;
   }
 }

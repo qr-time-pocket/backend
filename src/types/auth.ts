@@ -12,8 +12,9 @@ export interface KakaoUserInfo {
   has_signed_up?: boolean;
   connected_at?: string;
   synched_at?: string;
-  properties: {
-    nickname: string;
+  properties?: {
+    nickname?: string;
+    profile_image?: string;
   };
   kakao_account?: KakaoAccount;
 }

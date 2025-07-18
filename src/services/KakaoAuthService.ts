@@ -12,9 +12,11 @@ export class KakaoAuthService {
   private readonly redirectUri = "http://localhost:5173/oauth/kakao/callback";
 
   async exchangeCodeForToken(code: string): Promise<KakaoLoginResponse> {
+    console.log("code", code);
+
     try {
       const response = await axios.post<KakaoLoginResponse>(
-        `${KakaoAuthService.baseUrl}/oauth/token`,
+        `${KakaoAuthService.kauthUrl}/oauth/token`,
         null,
         {
           params: {
