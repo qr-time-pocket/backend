@@ -11,6 +11,7 @@ const PUBLIC_PATHS = [
   "/auth/login",
   "/auth/profile",
   "/auth/test/login",
+  // "/academy",
   "/hello",
 ];
 

@@ -42,7 +42,7 @@ model Academy{
   id String @id @default(uuid())
   name String
   address String
-  phoneNumber String?
+  contact String?
   logoUrl String?
   description String?
   
@@ -52,8 +52,8 @@ model Academy{
   deletedAt DateTime?
   
   // relations
-  owner User @relation(fields: [ownerId], references: [id])
-  ownerId String
+  owner User? @relation(fields: [ownerId], references: [id])
+  ownerId String?
 
   academyManagers AcademyManager[]
   exercises Exercise[]

@@ -25,13 +25,13 @@ erDiagram
   String id PK
   String name
   String address
-  String phoneNumber "nullable"
+  String contact "nullable"
   String logoUrl "nullable"
   String description "nullable"
   DateTime createdAt
   DateTime updatedAt
   DateTime deletedAt "nullable"
-  String ownerId FK
+  String ownerId FK "nullable"
   String brandId FK "nullable"
 }
 "AcademyManager" {
@@ -64,7 +64,7 @@ erDiagram
   DateTime expiresAt
   DateTime createdAt
 }
-"Academy" }o--|| "User" : owner
+"Academy" }o--o| "User" : owner
 "Academy" }o--o| "Brand" : brand
 "AcademyManager" }o--|| "Academy" : academy
 "AcademyManager" }o--|| "User" : user
@@ -101,7 +101,7 @@ Properties as follows:
 - `id`:
 - `name`:
 - `address`:
-- `phoneNumber`:
+- `contact`:
 - `logoUrl`:
 - `description`:
 - `createdAt`:

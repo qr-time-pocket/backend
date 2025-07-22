@@ -6,14 +6,14 @@ import { DatabaseService } from "./DatabaseService";
 export class AcademyService {
   constructor(private readonly databaseService: DatabaseService) {}
 
-  async createAcademy(academy: Academy) {
+  async createAcademy(userId: string | undefined, academy: Academy) {
     try {
       const prisma = this.databaseService.getPrisma();
 
       await prisma.academy.create({
         data: {
           ...academy,
-          ownerId: academy.ownerId,
+          ownerId: userId,
         },
       });
     } catch (error) {
@@ -31,12 +31,15 @@ export class AcademyService {
   }
 
   async getAcademies(userId: string) {
+    console.log(userId);
     const prisma = this.databaseService.getPrisma();
     const academies = await prisma.academy.findMany({
       where: {
         ownerId: userId,
       },
     });
+
+    console.log(academies);
     return academies;
   }
 
