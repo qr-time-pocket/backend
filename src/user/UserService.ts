@@ -1,7 +1,7 @@
 import { inject, injectable } from "tsyringe";
+import { KakaoAuthService } from "../auth/kakaoAuthService";
+import { DatabaseService } from "../infrastructure/databaseService";
 import { KakaoUserInfo } from "../types/auth";
-import { DatabaseService } from "./DatabaseService";
-import { KakaoAuthService } from "./KakaoAuthService";
 
 @injectable()
 export class UserService {

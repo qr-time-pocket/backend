@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { container } from "tsyringe";
-import { AuthService } from "../services/AuthService";
+import { AuthService } from "./AuthService";
 
 const router = Router();
 const authService = container.resolve(AuthService);

@@ -1,8 +1,8 @@
 import jwt from "jsonwebtoken";
 import { inject, injectable } from "tsyringe";
-import { DatabaseService } from "./DatabaseService";
-import { KakaoAuthService } from "./KakaoAuthService";
-import { UserService } from "./UserService";
+import { DatabaseService } from "../infrastructure/databaseService";
+import { UserService } from "../user/UserService";
+import { KakaoAuthService } from "./kakaoAuthService";
 
 @injectable()
 export class AuthService {

@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { container } from "tsyringe";
-import { AuthService } from "../services/AuthService";
+import { AuthService } from "../../auth/AuthService";
 
 export interface AuthenticatedRequest extends Request {
   user?: any;

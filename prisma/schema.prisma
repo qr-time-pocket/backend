@@ -64,6 +64,7 @@ model Academy{
 
 model AcademyManager{
   id String @id @default(uuid())
+  role AcademyManagerRole
 
   academy Academy @relation(fields: [academyId], references: [id])
   academyId String
@@ -117,4 +118,10 @@ model RefreshToken {
   createdAt DateTime @default(now())
 
   @@index([userId])
+}
+
+enum AcademyManagerRole {
+  OWNER
+  MANAGER
+  COACH
 }

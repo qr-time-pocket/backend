@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { container } from "tsyringe";
-import { AuthenticatedRequest } from "../middlewares/auth";
-import { AcademyService } from "../services/academyService";
+import { AuthenticatedRequest } from "../../infrastructure/middlewares/auth";
+import { AcademyService } from "./academyService";
 
 const router = Router();
 const academyService = container.resolve(AcademyService);

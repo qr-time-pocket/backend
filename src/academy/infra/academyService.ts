@@ -1,14 +1,18 @@
 import { injectable } from "tsyringe";
-import { Academy } from "../../generated/prisma";
-import { DatabaseService } from "./DatabaseService";
+import { Academy } from "../../../generated/prisma";
+import { DatabaseService } from "../../infrastructure/databaseService";
+import { AcademyEntity } from "../entities/academy";
+import { AcademyCreateDto } from "../types/dto";
 
 @injectable()
 export class AcademyService {
   constructor(private readonly databaseService: DatabaseService) {}
 
-  async createAcademy(userId: string | undefined, academy: Academy) {
+  async createAcademy(userId: string | undefined, academy: AcademyCreateDto) {
     try {
       const prisma = this.databaseService.getPrisma();
+
+      AcademyEntity.create(academy);
 
       await prisma.academy.create({
         data: {
